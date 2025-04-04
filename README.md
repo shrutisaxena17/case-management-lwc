@@ -1,18 +1,19 @@
-# Salesforce DX Project: Next Steps
+This project implements a Salesforce Lightning Web Component (LWC) that displays Case details, including Product and Feature selections.
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+Features:
 
-## How Do You Plan to Deploy Your Changes?
+Case Record Types: Onboarding, Product, and Services.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+Custom Fields:
 
-## Configure Your Salesforce DX Project
+Product__c (Picklist: Product A - Product F)
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+Feature__c (Picklist: Case Sensitive, Customer Queries, Product Support)
 
-## Read All About It
+Some Field Dependencies:
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+Onboarding → Only shows Product A.
+
+Product F → Only allows Case Sensitive in Features.
+
+LWC Component: Displays case details, including selected Product and Feature.
