@@ -1,0 +1,27 @@
+<template>
+    <lightning-input type="text" name="firstname" label="First Name" 
+        placeholder="Write your first name" onchange={handleInputChange}>
+    </lightning-input>
+
+    <lightning-input type="text" name="lastname" label="Last Name" 
+        placeholder="Write your last name" onchange={handleInputChange}>
+    </lightning-input>
+
+    <lightning-input type="email" name="email" label="Email" 
+        placeholder="Write your email" onchange={handleEmailChange}>
+    </lightning-input>
+
+    <lightning-button variant="brand" label="Submit" 
+        onclick={handleClick} disabled={isSubmitDisabled}>
+    </lightning-button>
+
+    <template if:true={isSubmitDisabled}>
+        <p style="color:red;">You are not allowed to login</p>
+    </template>
+    
+    <template if:true={isFormSubmitted}>
+        <p><strong>First Name:</strong> {userDetails.firstname}</p>
+        <p><strong>Last Name:</strong> {userDetails.lastname}</p>
+        <p><strong>Email:</strong> {userDetails.email}</p>
+    </template>
+</template>

@@ -1,0 +1,52 @@
+<template>
+    <div class="slds-box slds-p-around_medium">
+        <h1 class="slds-text-heading_large slds-m-bottom_medium">To-Do List</h1>
+        
+        <div class="slds-grid slds-gutters slds-m-bottom_medium">
+            <div class="slds-col">
+                <lightning-input 
+                    type="text" 
+                    placeholder="Enter task to add to your to-do list" 
+                    value={newTask} 
+                    onchange={handleChange}>
+                </lightning-input>
+            </div>
+            <div class="slds-col">
+                <lightning-button 
+                    variant="brand" 
+                    label="Add Task" 
+                    title="Add Task" 
+                    onclick={addTaskHandler} 
+                    class="slds-m-left_x-small">
+                </lightning-button>
+            </div>
+        </div>
+
+        <ul class="slds-list_vertical slds-p-around_small slds-border_top">
+            <template for:each={tasks} for:item="task">
+                <li key={task.id} class="slds-item slds-box slds-p-around_small slds-m-bottom_x-small slds-grid slds-align_absolute-center">
+                    
+                    <lightning-input 
+                        type="checkbox" 
+                        checked={task.completed} 
+                        data-id={task.id} 
+                        onchange={toggleCompleteHandler}
+                        class="slds-m-right_small">
+                    </lightning-input>
+
+                    <span class={task.taskClass}>
+                        {task.name}
+                    </span>                    
+
+                    <lightning-button-icon 
+                        icon-name="utility:close" 
+                        alternative-text="Delete Task" 
+                        data-id={task.id} 
+                        onclick={deleteTaskHandler} 
+                        class="slds-m-left_auto slds-button_icon-border">
+                    </lightning-button-icon>
+                </li>
+            </template>
+        </ul>
+    </div>
+</template>
