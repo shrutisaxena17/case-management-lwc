@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="Related Opportunities" icon-name="standard:opportunity">
+        <template if:true={opportunities}>
+            <template for:each={opportunities} for:item="opp">
+                <lightning-input 
+                    key={opp.Id}
+                    type="checkbox" 
+                    label={opp.Name} 
+                    data-id={opp.Id} 
+                    onchange={handleSelection}>
+                </lightning-input>
+            </template>
+
+            <lightning-button 
+                label="Associate Selected Opportunities" 
+                variant="brand" 
+                onclick={associateOpportunities}
+                class="slds-m-top_medium">
+            </lightning-button>
+        </template>
+
+        <template if:false={opportunities}>
+            <p>No opportunities found.</p>
+        </template>
+
+        <template if:true={message}>
+            <p>{message}</p>
+        </template>
+    </lightning-card>
+</template>
