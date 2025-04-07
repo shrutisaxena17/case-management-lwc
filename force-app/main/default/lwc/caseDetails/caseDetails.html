@@ -1,0 +1,34 @@
+<template>
+    <lightning-card title="Case Details" icon-name="standard:case">
+        <div class="slds-m-around_medium">
+            <template if:true={caseData}>
+                <p><strong>Case Origin:</strong> {caseData.Origin}</p>
+                <p><strong>Case Status:</strong> {caseData.Status}</p>
+                <p><strong>Product Demo:</strong> {caseData.ProductDemo__c}</p>
+                <p><strong>Feature:</strong> {caseData.Feature__c}</p>
+            </template>
+
+            <template if:true={error}>
+                <p style="color: red;">Error fetching case details: {error}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
+
+<!--
+<template>
+    <lightning-card title="Case Details" icon-name="standard:case">
+        <div class="slds-m-around_medium">
+            <template if:true={caseData}>
+                <p><strong>Case Origin:</strong> {caseData.fields.Origin.value}</p>
+                <p><strong>Case Status:</strong> {caseData.fields.Status.value}</p>
+                <p><strong>Product Demo:</strong> {caseData.fields.ProductDemo__c.value}</p>
+                <p><strong>Feature:</strong> {caseData.fields.Feature__c.value}</p>
+            </template>
+            <template if:true={error}>
+                <p style="color: red;">Error fetching case details: {error}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
+-->
