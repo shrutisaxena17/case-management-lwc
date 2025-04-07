@@ -1,0 +1,30 @@
+<template>
+    <lightning-card title="Mass Update Opportunity Stages">
+
+        <lightning-combobox
+            label="Select New Stage"
+            value={selectedStage}
+            options={stageOptions}
+            onchange={handleStageChange}>
+        </lightning-combobox>
+
+        <lightning-datatable
+            key-field="Id"
+            data={opportunities}
+            columns={columns}
+            onrowselection={handleRowSelection}>
+        </lightning-datatable>
+
+        <lightning-button
+            label="Update Stage"
+            onclick={updateStages}
+            variant="brand"
+            class="slds-m-top_medium">
+        </lightning-button>
+
+        <template if:true={message}>
+            <p class="slds-m-top_medium slds-text-color_success">{message}</p>
+        </template>
+
+    </lightning-card>
+</template>
