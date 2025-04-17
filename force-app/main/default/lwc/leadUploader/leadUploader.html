@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Upload Leads CSV">
+        <lightning-input type="file" label="Select CSV File" onchange={handleFileChange} accept=".csv"></lightning-input>
+        <lightning-button label="Upload" onclick={handleUpload} disabled={isUploadDisabled}></lightning-button>
+
+        <template if:true={showProgress}>
+            <lightning-progress-bar value={progress} size="large"></lightning-progress-bar>
+            <p>{progress}% Completed</p>
+        </template>
+    </lightning-card>
+</template>
